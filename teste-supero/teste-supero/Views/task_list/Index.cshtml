@@ -1,0 +1,71 @@
+﻿@model IEnumerable<teste_supero.Models.task_list>
+
+@{
+    ViewBag.Title = "Cadastro de Tasks";
+}
+
+<h3>Cadastro de Tasks</h3>
+
+<p>
+    <button type="button" class="btn btn-default">@Html.ActionLink("Create New", "Create")</button>
+    
+</p>
+<table class="table table-striped">
+    <tr>
+        <th width="10%">
+            Título
+        </th>
+        <th width="40%">
+            Descrição
+        </th>
+        <th width="10%">
+            Data Inclusão
+        </th>
+        <th width="10%">
+            Status
+        </th>
+        <th width="10%"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataInclusao).ToHtmlString().AsDateTime().ToShortDateString()
+        </td>
+        <td>
+            @if (item.concluido == null)
+            {
+                <h4><span class="label label-default">Não definido</span></h4>
+            }
+            else if (!item.concluido.Value)
+            {
+                <h4><span class="label label-warning">Não Concluído</span></h4>
+            }
+            else
+            {
+                <h4><span class="label label-success">Concluído</span></h4>
+            }
+        </td>
+        <td>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                    Opções
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Editar", "Edit", new { id = item.ID })</li>
+                    <li>@Html.ActionLink("Visuaizar", "Details", new { id = item.ID })</li>
+                    <li>@Html.ActionLink("Apagar", "Delete", new { id = item.ID })</li>
+                </ul>
+            </div>            
+        </td>
+    </tr>
+}
+
+</table>

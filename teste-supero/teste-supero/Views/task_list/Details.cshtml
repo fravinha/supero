@@ -1,0 +1,57 @@
+﻿@model teste_supero.Models.task_list
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Task</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label col-md-pull-4">Título:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+
+        <dt>
+            <label class="control-label col-md-pull-4">Descrição:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+
+        <dt>
+            <label class="control-label col-md-pull-4">Concluído:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.concluido)
+        </dd>
+
+        <dt>
+            <label class="control-label col-md-pull-4">Data Inclusão:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataInclusao).ToString().AsDateTime().ToShortDateString()
+        </dd>
+
+        <dt>
+            <label class="control-label col-md-pull-4">Data Alteração:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataAlteracao).ToString().AsDateTime().ToShortDateString()
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Voltar", "Index")
+</p>

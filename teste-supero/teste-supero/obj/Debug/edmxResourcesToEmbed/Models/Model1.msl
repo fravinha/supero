@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="superoModelStoreContainer" CdmEntityContainer="superoEntities">
+    <EntitySetMapping Name="task_list">
+      <EntityTypeMapping TypeName="superoModel.task_list">
+        <MappingFragment StoreEntitySet="task_list">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="concluido" ColumnName="concluido" />
+          <ScalarProperty Name="dataInclusao" ColumnName="dataInclusao" />
+          <ScalarProperty Name="dataAlteracao" ColumnName="dataAlteracao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
